@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+
+# Environment / secrets
+.env
+
+# Local app data and artifacts
+.exam_helper_data/
+
+# Local sample assets
+36121 Session 1 Lecture Slide.pdf
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
