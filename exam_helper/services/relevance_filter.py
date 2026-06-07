@@ -3,8 +3,6 @@
 import hashlib
 import json
 import re
-from collections import Counter
-from pathlib import Path
 from typing import Any
 
 from langchain_core.documents import Document

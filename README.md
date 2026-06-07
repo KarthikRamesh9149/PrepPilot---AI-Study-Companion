@@ -10,7 +10,7 @@ Built for students who want focused revision from their own module files, not ge
 
 ## Why PrepPilot
 
-- Study from **your uploaded content** (`.pdf`, `.ppt`, `.pptx`)
+- Study from **your uploaded content** (`.pdf`, `.pptx`)
 - Get **detailed explanations** for quiz answers
 - Get a **structured study plan** from today to exam date
 - Keep everything **grounded with citations** (file + page/slide)
@@ -53,6 +53,8 @@ flowchart LR
 ### 1) Install dependencies
 
 ```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 ```
 
@@ -77,6 +79,14 @@ MAX_RETRIES=1
 python -m streamlit run app.py
 ```
 
+### 4) Validate changes
+
+```powershell
+python -m ruff check .
+python -m pytest
+python -m compileall app.py exam_helper
+```
+
 ---
 
 ## Typical Student Flow
@@ -96,16 +106,19 @@ python -m streamlit run app.py
 - Admin/logistics content filtering (e.g., Canvas/policy noise) to focus on exam material
 - Local caching and persistent indexing for fast repeat usage
 - Robust Groq retry + fallback behavior on rate limits
+- Path-safe upload handling for local module files
 
 ---
 
 ## Tech Notes (Short)
 
 - Frontend: Streamlit
+- Supported uploads: PDF and modern PowerPoint (`.pptx`)
 - LLM: Groq (OpenAI-compatible API)
 - Retrieval pipeline: LangChain-based RAG
 - Embeddings: Local (`all-MiniLM-L6-v2`)
 - Vector store: Chroma (with SKLearn fallback)
+- Quality checks: Ruff, pytest, and GitHub Actions CI
 
 For full technical architecture, read **[`ARCHITECTURE.md`](ARCHITECTURE.md)**.
 
