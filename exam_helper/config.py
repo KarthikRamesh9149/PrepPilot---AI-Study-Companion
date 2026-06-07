@@ -5,14 +5,29 @@ APP_NAME = "PrepPilot"
 DATA_ROOT = Path(".exam_helper_data")
 MODULES_DIR = DATA_ROOT / "modules"
 
+
+def _env_int(name: str, default: int) -> int:
+    try:
+        return int(os.getenv(name, str(default)))
+    except (TypeError, ValueError):
+        return default
+
+
+def _env_float(name: str, default: float) -> float:
+    try:
+        return float(os.getenv(name, str(default)))
+    except (TypeError, ValueError):
+        return default
+
+
 CHUNK_SIZE = 1200
 CHUNK_OVERLAP = 200
 DEFAULT_RETRIEVAL_K = 8
-DEFAULT_MAX_RETRIES = int(os.getenv("MAX_RETRIES", "1"))
+DEFAULT_MAX_RETRIES = _env_int("MAX_RETRIES", 1)
 DEFAULT_QUIZ_DIFFICULTY = "Medium"
 DEFAULT_STUDY_HOURS_PER_DAY = 2
 LARGE_CHUNK_THRESHOLD = 1200
-DEFAULT_TIMEOUT_SECONDS = float(os.getenv("LLM_TIMEOUT_SECONDS", "30"))
+DEFAULT_TIMEOUT_SECONDS = _env_float("LLM_TIMEOUT_SECONDS", 30.0)
 DEFAULT_GROQ_BASE_URL = os.getenv("GROQ_BASE_URL", "https://api.groq.com/openai/v1")
 
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
@@ -31,7 +46,7 @@ PLAN_MODEL_FALLBACK = [
     PRIMARY_MODEL,
 ]
 
-SUPPORTED_EXTENSIONS = {".pdf", ".ppt", ".pptx"}
+SUPPORTED_EXTENSIONS = {".pdf", ".pptx"}
 CACHE_SCHEMA_VERSION = "v5_readability_detailed_outputs"
 
 

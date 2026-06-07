@@ -298,8 +298,8 @@ retrieval_k = DEFAULT_RETRIEVAL_K
 with st.sidebar:
     st.header("1) Upload Materials")
     uploaded_files = st.file_uploader(
-        "Upload lecture PDFs or slides",
-        type=["pdf", "ppt", "pptx"],
+        "Upload lecture PDFs or PowerPoint slides",
+        type=["pdf", "pptx"],
         accept_multiple_files=True,
     )
 

@@ -54,7 +54,7 @@ Responsibilities:
 
 Responsibilities:
 - read PDFs via `PyPDFLoader`
-- read PPT/PPTX via `python-pptx`
+- read PPTX slides via `python-pptx`
 - normalize metadata
 - chunk documents with overlap
 - embed and persist vector index
@@ -101,7 +101,7 @@ Responsibilities:
 
 ```mermaid
 flowchart LR
-    A[Uploaded Files<br/>PDF/PPT/PPTX] --> B[LangChain Document Loaders]
+    A[Uploaded Files<br/>PDF/PPTX] --> B[LangChain Document Loaders]
     B --> C[RecursiveCharacterTextSplitter<br/>chunk_size=1200 overlap=200]
     C --> D[HuggingFaceEmbeddings<br/>all-MiniLM-L6-v2 local]
     D --> E[Vector Store<br/>Chroma persisted<br/>SKLearn fallback]
@@ -118,7 +118,7 @@ flowchart LR
 2. Files are saved under module-scoped directory.
 3. Load into LangChain `Document` objects:
    - PDF pages (`PyPDFLoader`)
-   - PPT/PPTX slides (`python-pptx` -> `Document`)
+   - PPTX slides (`python-pptx` -> `Document`)
 
 Metadata included:
 - `source_file`
@@ -294,12 +294,13 @@ These contracts enforce structural correctness for UI rendering and downstream p
 
 ## 10) Operational Notes
 
-- Recommended Python: **3.11/3.12**
-- App can run on 3.14 with warning suppression included
+- Recommended Python: **3.12/3.13**
+- Local development supports Python 3.11 through 3.14
 - First run is slower (embedding/index build); repeat runs are much faster due to persistence/caching
 - For local validation:
-  - `python -m pytest -q -p no:cacheprovider`
-  - `python scripts/smoke_test_pdf.py --pdf "<path-to-pdf>" --with-llm`
+  - `python -m ruff check .`
+  - `python -m pytest`
+  - `python -m compileall app.py exam_helper`
 
 ---
 
