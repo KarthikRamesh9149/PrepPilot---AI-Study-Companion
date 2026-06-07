@@ -9,7 +9,6 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from exam_helper.config import CHUNK_OVERLAP, CHUNK_SIZE
 from exam_helper.utils.cache import load_json, save_json
 
-
 SNIPPET_LENGTH = 180
 
 

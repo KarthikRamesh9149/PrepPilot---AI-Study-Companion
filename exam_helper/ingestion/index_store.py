@@ -4,8 +4,8 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
-from langchain_core.documents import Document
 from langchain_community.vectorstores import SKLearnVectorStore
+from langchain_core.documents import Document
 from langchain_huggingface import HuggingFaceEmbeddings
 
 from exam_helper.config import EMBEDDING_MODEL_NAME
