@@ -367,3 +367,7 @@ PrepPilot is a compact example of production-minded AI application design:
 - design cache keys around inputs that affect generated results;
 - treat AI output quality as an engineering problem with tests, schemas, repair
   paths, and explicit fallback behavior.
+
+## License
+
+All rights reserved. This repository is public for portfolio and recruitment review. Reuse, redistribution, or commercial use requires explicit written permission from Karthik Ramesh.
