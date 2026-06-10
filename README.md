@@ -12,6 +12,12 @@ miss: students do not need another generic chatbot. They need revision help
 anchored to their actual module material, traceable references, and a realistic
 plan for the time they have before an exam.
 
+## Product Screenshot
+
+Real local Streamlit run showing the upload, exam-date, study-profile, quiz, and study-plan workspace before module materials are processed. Quiz and plan generation require a configured Groq key.
+
+![PrepPilot upload and quiz workspace](docs/assets/screenshots/preppilot-workspace.png)
+
 ## What It Does
 
 - Ingests `.pdf` and `.pptx` lecture materials.
